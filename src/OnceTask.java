@@ -1,2 +1,5 @@
-package PACKAGE_NAME;public class OnceTask {
+public class OnceTask extends Task{
+    public OnceTask(CategoryTask categoryTask, String nameTask, String descriptionTask, Repeatable repeatable) {
+        super(categoryTask, nameTask, descriptionTask, repeatable);
+    }
 }
