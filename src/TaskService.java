@@ -46,14 +46,14 @@ public class TaskService {
         for (Map<Task, LocalDate> item : taskList.values()) {
             for (Task key : item.keySet()) {
                 switch (key.getRepeatable()) {
-                    case "Ежедневная" -> System.out.println(key.getNameTask() + item.values().toString()+date.getDayOfMonth());
+                    case "Ежедневная" -> System.out.println(key.getNameTask() + item.values().toString()+item.values().getClass());
                     case "Ежемесячная" -> {
-                        if (item.values().contains(date.getDayOfMonth())) {
+                        if (item.get(key).getDayOfMonth()==date.getDayOfMonth()) {
                             System.out.println(key.getNameTask());
                         }
                     }
                     case "Ежегодная" -> {
-                        if (item.values().contains(date.getDayOfYear())) {
+                        if (item.get(key).getDayOfYear()==date.getDayOfYear()) {
                             System.out.println(key.getNameTask());
                         }
                     }
@@ -63,7 +63,7 @@ public class TaskService {
                         }
                     }
                     case "Еженедельная" -> {
-                        if (item.values().contains(date.getDayOfWeek())) {
+                        if (item.get(key).getDayOfWeek()== date.getDayOfWeek()) {
                             System.out.println(key.getNameTask());
                         }
                     }
